@@ -1,0 +1,38 @@
+
+
+<div class="card mb-4 mb-md-0">
+    <div class="card-body">
+        <form [formGroup]="stdForm" (ngSubmit)="onStdAdd()">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" formControlName="fname" class="form-control" id="fname">
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" formControlName="lname" class="form-control" id="lname">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <input type="text" formControlName="contact" class="form-control" id="contact">
+            </div>
+            <button 
+            *ngIf="!isInEditmode"
+            type="submit" 
+            [disabled]="stdForm.invalid"
+            class="btn btn-outline-primary btn-sm btn-block">Add Student</button>
+            <button 
+            *ngIf="isInEditmode"
+            type="button" 
+            [disabled]="stdForm.invalid"
+            class="btn btn-outline-primary btn-sm btn-block"
+            (click)="onUpdate()"
+            >Update Student</button>
+       
+       
+        </form>
+    </div>
+</div>
